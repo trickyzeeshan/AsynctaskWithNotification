@@ -67,7 +67,6 @@ public class NotificationTask extends AsyncTask<String, Double, Void> {
             conection.connect();
             int lenghtOfFile = conection.getContentLength();
             sizeof=conection.getContentLength();
-            Log.d(TAG, "doInBackground: "+sizeof);
             InputStream input = new BufferedInputStream(url.openStream(), 8192);
             OutputStream output = new FileOutputStream("/sdcard/downloadedfile.jpg");
             byte data[] = new byte[1024];
@@ -112,7 +111,6 @@ public class NotificationTask extends AsyncTask<String, Double, Void> {
         mBuilder.setContent(remoteViews);
         remoteViews.setTextViewText(R.id.downloading,"Downloaded");
         remoteViews.setTextViewText(R.id.downloadpercent,"100%");
-        Log.d(TAG, "setCompletedNotification: "+"");
         remoteViews.setTextViewText(R.id.textView5,bytes2String(downloadsize)+"   "+"/");
         remoteViews.setProgressBar(R.id.progressBar,100,100,false);
         Intent resultIntent = new Intent(mContext, Result.class);
