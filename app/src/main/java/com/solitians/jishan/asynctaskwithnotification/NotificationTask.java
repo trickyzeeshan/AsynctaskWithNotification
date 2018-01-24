@@ -111,7 +111,6 @@ public class NotificationTask extends AsyncTask<String, Double, Void> {
         mBuilder.setContent(remoteViews);
         remoteViews.setTextViewText(R.id.downloading,"Downloaded");
         remoteViews.setTextViewText(R.id.downloadpercent,"100%");
-        Log.d(TAG, "setCompletedNotification: "+"");
         remoteViews.setTextViewText(R.id.textView5,bytes2String(downloadsize)+"   "+"/");
         remoteViews.setProgressBar(R.id.progressBar,100,100,false);
         Intent resultIntent = new Intent(mContext, Result.class);
@@ -121,6 +120,7 @@ public class NotificationTask extends AsyncTask<String, Double, Void> {
         PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0,
                 PendingIntent.FLAG_UPDATE_CURRENT);
         mBuilder.setContentIntent(resultPendingIntent);
+        mBuilder.setAutoCancel(true);
         mNotifyManager.notify(mId, mBuilder.build());
     }
 
