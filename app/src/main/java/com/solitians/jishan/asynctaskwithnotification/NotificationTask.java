@@ -67,6 +67,7 @@ public class NotificationTask extends AsyncTask<String, Double, Void> {
             conection.connect();
             int lenghtOfFile = conection.getContentLength();
             sizeof=conection.getContentLength();
+            Log.d(TAG, "doInBackground: "+sizeof);
             InputStream input = new BufferedInputStream(url.openStream(), 8192);
             OutputStream output = new FileOutputStream("/sdcard/downloadedfile.jpg");
             byte data[] = new byte[1024];
